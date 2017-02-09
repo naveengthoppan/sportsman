@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load sportsmantags %}
+
+{% block title %}Approved Participants{% endblock %}
+
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <div class="alert alert-info">
+    <strong>Info</strong> {{ message }}
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+  <h2>Approved Participants</h2>
+    <div class="container">
+  <p>Following is the list of approved participants.</p>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Events</th>
+      </tr>
+    </thead>
+      <tbody>
+      {% if participant_list.count == 0 %}
+        <tr>
+        <td><h3>No participants approved</h3></td>
+        </tr>
+      {% else %}
+        {% for participant in participant_list %}
+        <tr>
+            <td>{{ participant.first_name }}</td>
+            <td>{{ participant.last_name }}</td>
+            <td>{{ participant.age }}</td>
+            <td>{{ participant.events_list|event_tags }}</td>
+            <td><a href="{% url 'participant_edit' pk=participant.pk %}" class="btn btn-primary" role="button">Edit</a></td>
+            <td><a href="{% url 'participant_delete' pk=participant.pk %}" class="btn btn-danger" data-toggle="modal" data-target="#myModal" role="button">Delete</a></td>
+        </tr>
+        {% endfor %}
+      {% endif %}
+    </tbody>
+  </table>
+{% if participant_list.has_other_pages %}
+  <ul class="pagination">
+    {% if participant_list.has_previous %}
+      <li><a href="?page={{ participant_list.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in participant_list.paginator.page_range %}
+      {% if participant_list.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if participant_list.has_next %}
+      <li><a href="?page={{ participant_list.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete the participant?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Ok</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

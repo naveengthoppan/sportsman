@@ -1,0 +1,38 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>SportsMan</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Oswald:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'sportsman/css/base.css' %}">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="{% url 'index' %}"><img alt="Brand" src="{% static "sportsman/images/logo.png" %}">SportsMan</a>
+                </div>
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'participant_new' %}">Add Participant</a></li>
+                    <li><a href="{% url 'participant_approved' %}">Approved Participants</a></li>
+                    <li><a href="{% url 'update_profile' %}">Update Profile</a></li>
+                    <li><a href="{% url 'change_password' %}">Change Password</a></li>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+                {% endif %}
+            </div>
+        </nav>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-12">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

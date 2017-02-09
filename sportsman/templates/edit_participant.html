@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="col-md-6 col-md-offset-3">
+    <h1>Participant Details</h1>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <div class="alert alert-info">
+    <strong>Info</strong> {{ message }}
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
+    <form method="POST" class="post-form" enctype="multipart/form-data">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+</div>
+{% endblock %}

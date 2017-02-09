@@ -1,0 +1,133 @@
+h1 a {
+    color: #FCA205;
+    font-family: 'Oswald', sans-serif;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header {
+    background-color: #ff9933;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+    height: 92px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.page-header h1 {
+    float: left;
+    margin: 0;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Oswald', sans-serif;
+}
+
+.date {
+    color: #828282;
+}
+
+.save, .new-user {
+    display: block;
+    margin: auto;
+    width: 100px;
+    clear: both;
+}
+
+.new-user {
+    width: 120px;
+}
+
+.post-form textarea, .post-form input {
+    width: 100%;
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 26pt;
+    margin-right: 20px;
+}
+
+.post {
+    margin-bottom: 70px;
+}
+
+.post h1 a, .post h1 a:visited {
+    color: #000000;
+}
+#custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 5px;
+}
+
+.list-header{
+    line-height: 54px;
+    margin: 0;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+#custom-search-input .input-lg{
+    padding-right: 50px;
+}
+.error input, .error select {
+    border: 2px red solid;
+}
+
+.search-icon {
+    position: absolute;
+    right: 44px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+.navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
+
+.error {
+    color: red;
+}
+
+.update {
+    width: auto;
+}
+
+.password-field {
+    margin-bottom: 10px;
+}
+
+.update-btn {
+    display: block;
+    margin: 10px auto 0;
+}
